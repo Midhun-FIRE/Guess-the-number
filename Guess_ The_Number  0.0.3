@@ -1,0 +1,48 @@
+#Importing modules
+
+import random
+import time
+
+print('_____________Welcome to guess the number game____________')
+time.sleep(1)
+
+name = input('Enter Your name : ')
+
+print(f'''
+     Good to see you {name}, now lets start the game.
+     ''')
+time.sleep(1)
+#Getting the random number
+
+y = random.randint(1,100)
+c = 0
+
+
+#Looping the Input program
+
+while True:
+    try:
+        x = int(input('Enter a number : '))
+    except ValueError:
+            print('Invalid Input')
+            continue
+    if x == y:
+        c += 1
+        print(f'Congrats You got the answer in {c} attempts')
+        
+        choice = input('''
+        Before starting next round:
+            if you want to quit enter QUIT
+            if you want to continue enter GO
+                Your Answer : ''')
+        if choice.lower() == 'quit':
+            print(f'Thanks for playing this game! Hope to see you later {name} ')
+            break
+        y = random.randint(1,100)
+        c = 0
+    elif x > y :
+        print('you guessed high')
+        c += 1
+    else:
+        print('You guessed too low')
+        c += 1
